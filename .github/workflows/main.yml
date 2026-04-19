@@ -1,13 +1,23 @@
-name: CI/CD pipeline
+Example Workflow:
+name: CI/CD Pipeline
 
-on:
-  push:
-    branches: [main]
+on: 
+   push:
+      branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Greet me
-        run: echo "Hello Mahima"
+      - uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Build Project
+        run: npm run build
+
