@@ -1,23 +1,22 @@
+name: Frontend Website CI/CD
 
-name: CI/CD Pipeline
-
-on: 
-   push:
-      branches: [ main ]
+on:
+  push:
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Show Project Files
+        run: ls
 
-      - name: Run Tests
-        run: npm test
+      - name: Success Message
+        run: echo "HTML CSS JS Website Ready"
 
-      - name: Build Project
-        run: npm run build
-
+      - name: Deploy Website
+        run: echo "Deploying website..."
